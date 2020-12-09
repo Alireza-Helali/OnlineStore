@@ -19,12 +19,12 @@
                 <div class="col-sm-9 padding-right">
                     <div class="features_items"><!--features_items-->
                         <h2 class="title text-center">محصولات خرده</h2>
-                        {% for product in object_list %}
+                        {% for product in products %}
                             <div class="col-sm-4">
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="{{ product.image.url }}" alt=""/>
+                                            <img src="{{ product.image.url }}" alt="" style="height: 250px"/>
                                             <h2>{{ product.price }} ريال</h2>
                                             <p>{{ product.name }}</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i
@@ -53,10 +53,20 @@
 
 
                         <ul class="pagination">
-                            <li class="active"><a href="">1</a></li>
-                            <li><a href="">2</a></li>
-                            <li><a href="">3</a></li>
-                            <li><a href="">&raquo;</a></li>
+                            {% if page_obj.has_previous %}
+                                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                            {% endif %}
+
+                            {% for page in paginator.page_range %}
+                                {% if page == page_obj.number %}
+                                    <li class="active"><a href="?page={{ page }}">{{ page }}</a></li>
+                                {% else %}
+                                    <li><a href="?page={{ page }}">{{ forloop.counter }}</a></li>
+                                {% endif %}
+                            {% endfor %}
+                            {% if page_obj.has_next %}
+                                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                            {% endif %}
                         </ul>
                     </div><!--features_items-->
                 </div>
@@ -82,7 +92,7 @@
                                                 <ul>
                                                     {% if subcategory %}
                                                         <li style="margin-bottom: -20px"><a
-                                                                href="">{{ subcategory.title }}</a>
+                                                                href="{{ subcategory.title }}">{{ subcategory.title }}</a>
                                                         </li>
                                                     {% endif %}
                                                 </ul>
