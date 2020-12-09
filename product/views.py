@@ -11,11 +11,11 @@ class ProductList(ListView):
     template_name = 'product_list.html'
     context_object_name = 'products'
     queryset = Product.objects.only('name', 'price', 'image')
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['categories'] = Category.objects.all()
-        return context
+    #
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['categories'] = Category.objects.all()
+    #     return context
 
 
 # def product_list(request):
