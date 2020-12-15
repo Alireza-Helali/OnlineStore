@@ -44,4 +44,3 @@ class Address(models.Model):
     postal_code = models.CharField(max_length=10, verbose_name="کد پستی")
     priority = models.SmallIntegerField()
     user = models.ForeignKey(Profile, on_delete=models.CASCADE)
-

@@ -1,0 +1,23 @@
+{% extends 'shared/base.html' %}
+{% block title %}
+    صفحه ثبت نام
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <section id="form"><!--form-->
+            <div class="row">
+                <div class="col-sm-4 align-baseline">
+                    <div class="signup-form"><!--sign up form-->
+                        <h2>ثبت نام کاربـر جدیـد :</h2>
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            {{ form }}
+                            <button type="button" class="btn btn-block btn-warning">ثبت نام</button>
+                        </form>
+                    </div><!--/sign up form-->
+                </div>
+            </div>
+        </section>
+    </div>
+
+{% endblock %}

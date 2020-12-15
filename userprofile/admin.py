@@ -6,4 +6,3 @@ from .models import Address, Profile, Supplier
 admin.site.register(Address)
 admin.site.register(Profile)
 admin.site.register(Supplier)
-

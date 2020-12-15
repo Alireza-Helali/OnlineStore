@@ -36,6 +36,8 @@ class ProductDetail(DetailView):
     context_object_name = 'product'
 
     def get_queryset(self):
+        print(self.request.GET.get('pk'))
+        print(self.kwargs['pk'])
         product_id = self.kwargs['pk']
         qs = Product.objects.filter(id=product_id)
         return qs
