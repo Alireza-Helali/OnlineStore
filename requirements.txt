@@ -9,6 +9,10 @@ Jinja2==2.11.2
 MarkupSafe==1.1.1
 numpy==1.19.4
 Pillow==8.0.1
+<<<<<<< HEAD
+=======
+pkg-resources==0.0.0
+>>>>>>> dc2e013ecc81f0df3e5cf7c3a79ad842451c01a7
 pytz==2020.4
 requests==2.25.0
 sqlparse==0.4.1
